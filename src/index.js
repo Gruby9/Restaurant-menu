@@ -1,28 +1,60 @@
 import "./style.scss";
+import { createHomeTab } from "./home";
+import { createMenu } from "./menu";
 
 const content = document.querySelector('#content')
 
-function createContent() {
-    const sidebar = document.createElement('div.sidebar')
-    const homePhoto = document.createElement('div.homephoto')
-    const restaurantName = document.createElement('div.restaurantName')
-    const barMenu = document.createElement('div.menu')
-    const barStaff = document.createElement('div.staff')
-    const barContact = document.createElement('div.contact')
+function createSideBar() {
+    const sidebar = document.createElement('div')
+    const restaurantName = document.createElement('div')
+    const barMenu = document.createElement('div')
+    const barContact = document.createElement('div')
+    const mainContent = document.createElement('div')
 
+    sidebar.classList.add('sidebar')
+    restaurantName.classList.add('restaurantName')
+    barMenu.classList.add('barMenu')
+    barContact.classList.add('barContact')
+    mainContent.classList.add('mainContent')
+    
     restaurantName.innerHTML = 'SKRT'
     barMenu.innerHTML = 'MENU'
-    barStaff.innerHTML = 'STAFF'
     barContact.innerHTML = 'CONTACT'
-    homePhoto.innerHTML = 'Najlepsza knajpa w Warszawie'
+
 
     content.appendChild(sidebar)
-    content.appendChild(homePhoto)
+    content.appendChild(mainContent)
 
     sidebar.appendChild(restaurantName)
     sidebar.appendChild(barMenu)
-    sidebar.appendChild(barStaff)
     sidebar.appendChild(barContact)
+
+    restaurantName.addEventListener('click', function() {
+        if (restaurantName.classList.contains('open')) {}
+        else {
+            for (let i=0; i < sidebar.childNodes.length; i++) {
+                sidebar.childNodes[i].classList.remove('open')
+            }
+            mainContent.innerHTML = ''
+            restaurantName.classList.add('open');
+            return createHomeTab();
+        }
+    });
+
+    barMenu.addEventListener('click', function() {
+        if (barMenu.classList.contains('open')) {}
+        else {
+            for (let i=0; i < sidebar.childNodes.length; i++) {
+                sidebar.childNodes[i].classList.remove('open')
+            }
+            mainContent.innerHTML = ''
+            barMenu.classList.add('open');
+            return createMenu();
+        }
+    });
+
+
+    
 }
 
-createContent();
+createSideBar();

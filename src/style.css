@@ -1,4 +1,18 @@
 body {
   color: red;
+  background-color: dimgray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.restaurantName:hover {
+  cursor: pointer;
+  color: forestgreen;
+}
+
+.barMenu:hover {
+  cursor: pointer;
+  color: forestgreen;
 }
 /*# sourceMappingURL=style.css.map */

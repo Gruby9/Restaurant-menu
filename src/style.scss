@@ -1,5 +1,17 @@
 $body-color: red;
 
 body {
-  color: $body-color;
+    color: $body-color;
+    background-color: dimgray;
+    display: flex;
+}
+
+.restaurantName:hover {
+    cursor: pointer;
+    color: forestgreen;
+}
+
+.barMenu:hover {
+    cursor: pointer;
+    color: forestgreen;
 }
