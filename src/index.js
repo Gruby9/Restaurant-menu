@@ -1,6 +1,8 @@
 import "./style.scss";
 import { createHomeTab } from "./home";
 import { createMenu } from "./menu";
+import { createContact } from "./contact";
+import kawalek from "./kawalek.jpeg"
 
 const content = document.querySelector('#content')
 
@@ -20,6 +22,7 @@ function createSideBar() {
     restaurantName.innerHTML = 'SKRT'
     barMenu.innerHTML = 'MENU'
     barContact.innerHTML = 'CONTACT'
+    mainContent.innerHTML = '<p>maincontent</p>'
 
 
     content.appendChild(sidebar)
@@ -52,6 +55,18 @@ function createSideBar() {
             return createMenu();
         }
     });
+
+    barContact.addEventListener('click', function() {
+        if(barContact.classList.contains('open')) {}
+        else {
+            for (let i=0; i < sidebar.childNodes.length; i++) {
+                sidebar.childNodes[i].classList.remove('open')
+            }
+            mainContent.innerHTML = ''
+            barContact.classList.add('open');
+            return createContact();
+        }
+    })
 
 
     
